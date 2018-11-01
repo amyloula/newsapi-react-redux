@@ -57,3 +57,10 @@ h1, h2, h3, h4, h5, h6 {
 .individual-article--wrapper > * {
   flex: 1;
 }
+
+.top-bar__categories-bar {
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  color: black;
+}

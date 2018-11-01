@@ -8,6 +8,7 @@ class ArticleList extends Component {
         return this.props.articles.map((article) => {
             return (
                 <div key={article.title}>
+                    <img srcSet={article.urlToImage} src={article.urlToImage} alt={article.title}/>
                     <h3>{article.title}</h3>
                     <span className="mdl-chip">
                     <span className="mdl-chip__text">{article.author}</span>

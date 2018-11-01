@@ -15,7 +15,6 @@ class LangBar extends Component {
     }
 
     setLanguage(lang) {
-        console.log(lang);
         this.setState({language: lang})
     }
 
