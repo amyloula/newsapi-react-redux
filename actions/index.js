@@ -3,10 +3,12 @@ import axios from 'axios';
 const ROOT_URL = `https://newsapi.org/v2/top-headlines?`;
 const SOURCES_URL = `https://newsapi.org/v2/sources?`;
 const API_KEY = 'c11eaa6f63524aaeb20ace88ae522539';
-
+//Articles
 export const FETCH_SEARCH_RESULTS = 'FETCH_SEARCH_RESULTS';
 export const FETCH_TOP_BY_COUNTRY = 'FETCH_TOP_BY_COUNTRY';
 export const FETCH_SOURCES_BY_CATEGORY = 'FETCH_SOURCES_BY_CATEGORY';
+export const FETCH_SOURCES_BY_LANGUAGE = 'FETCH_SOURCES_BY_LANGUAGE';
+//Sources
 export const FETCH_BY_SOURCE = 'FETCH_BY_SOURCE';
 
 export function fetchSearchResults(searchTerm) {
@@ -45,6 +47,16 @@ export function getTopHeadlinesBySource(source) {
 
     return {
         type: FETCH_BY_SOURCE,
+        payload: request
+    }
+}
+
+export function getTopHeadlinesByUserAgentLanguage() {
+    const url = `${ROOT_URL}language=${window.navigator.language.slice(0, 2)}&apiKey=${API_KEY}`;
+    const request = axios.get(url);
+
+    return {
+        type: FETCH_SOURCES_BY_LANGUAGE,
         payload: request
     }
 }

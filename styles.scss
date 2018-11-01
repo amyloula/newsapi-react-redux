@@ -1,6 +1,9 @@
+@import 'variables.scss';
+
 body {
-  font-family: 'Merriweather', serif;
+  font-family: $ui-primary-font;
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Oswald', sans-serif;
   margin: 1rem;
@@ -17,9 +20,8 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: row;
   }
-  section  > * {
-    margin-left: auto;
-    //flex: 1;
+  section > * {
+    margin: 0 auto;
   }
 
   .top-bar--header-btn {
@@ -27,12 +29,31 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.search-menu__button {
+  color: $ui-inverse-text-color;
+  background-color: $ui-primary-accent-color;
+  padding: 5px;
+  width: auto;
+  font-family: $ui-accent-font;
+  letter-spacing: $ui-default-ltr-spacing;
+}
+
+input[type="search"] {
+  width: auto;
+  border: 1px solid $ui-primary-accent-color;
+  padding: 5px;
+  &::placeholder {
+    font-family: $ui-accent-font;
+  }
+}
+
 .search-menu--input {
   display: none;
-  border: 1px solid black;
+  border: 1px solid $ui-primary-accent-color;
   border-radius: 5px;
   padding: 1rem;
 }
+
 .toggle-search {
   display: block;
   transition: 1s display;
@@ -41,19 +62,48 @@ h1, h2, h3, h4, h5, h6 {
 .article--outer-wrapper {
   display: flex;
   flex-wrap: wrap;
+  padding: 15px;
+}
+
+.article {
+  flex: 1;
+  padding: 5px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top: 2px solid $ui-primary-accent-color;
+  margin: 5px;
+
+  .article__btn {
+    background-color: $ui-primary-accent-color;;
+    color: $ui-inverse-text-color;
+    box-shadow: none;
+    padding: 15px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-family: $ui-accent-font;
+    font-size: 12pt;
+    letter-spacing: $ui-default-ltr-spacing;
+  }
+  img {
+    height: 15rem;
+    width: auto;
+    margin: 0 auto;
+  }
 }
 
 .individual-article--wrapper {
-  border-top: .45rem solid black;
+  border-top: .45rem solid $ui-primary-accent-color;
   flex-grow: 1;
   width: 31%;
   height: auto;
   margin: 1%;
-    img {
-      width: 100%;
-      height: auto;
-    }
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
+
 .individual-article--wrapper > * {
   flex: 1;
 }
@@ -61,6 +111,19 @@ h1, h2, h3, h4, h5, h6 {
 .top-bar__categories-bar {
   height: 50px;
   width: 100%;
-  background-color: white;
+  background-color: $ui-primary-bk-color;
   color: black;
+  text-align: center;
+
+  ul {
+    list-style-type: none;
+    font-family: $ui-accent-font;
+    color: $ui-primary-text-color;
+    font-size: 12pt;
+  }
+  ul li {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 15px;
+  }
 }

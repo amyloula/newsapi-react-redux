@@ -22,12 +22,12 @@ class SearchBar extends Component {
     render() {
         return(
             <form onSubmit={this.onFormSubmit}>
-                <input placeholder=""
+                <input placeholder="Search for news by a key word" type="search"
                 className=""
                 value={this.state.term}
                 onChange={this.onInputChange}/>
                 <span>
-                    <button type="submit">
+                    <button className="search-menu__button" type="submit">
                         Search
                     </button>
                 </span>

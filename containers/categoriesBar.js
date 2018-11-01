@@ -26,13 +26,8 @@ class CategoryBar extends Component {
 
     render() {
         return (
-            <div class="top-bar__categories-bar">
-                <button id="setCategory"
-                        className="mdl-button mdl-js-button mdl-button--icon top-bar--header-btn">
-                    <i className="material-icons">settings</i>
-                </button>
-                <ul className="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
-                    htmlFor="setCategory" id="setCategory">
+            <div className="top-bar__categories-bar">
+                <ul className="" id="setCategory">
                     {this.state.categories.map((category) => {
                         return (
                             <CategoryItem setCategory={this.setCategory} key={category} category={category}/>
@@ -45,7 +40,7 @@ class CategoryBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({getTopHeadlinesByCategory: getSourcesByCategory}, dispatch);
+    return bindActionCreators({getSourcesByCategory: getSourcesByCategory}, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(CategoryBar);

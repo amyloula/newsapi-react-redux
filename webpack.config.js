@@ -64,7 +64,7 @@ module.exports.push({
             inject: false,
             hash: true,
             template: './index.html',
-            filename: 'base.html'
+            filename: 'index.html'
         })
     ]
 });

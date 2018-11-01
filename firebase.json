@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "webpack",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

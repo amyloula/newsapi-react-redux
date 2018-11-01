@@ -15,12 +15,12 @@ class LangBar extends Component {
     }
 
     setLanguage(lang) {
-        this.setState({language: lang})
+        this.setState({language: lang});
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidUpdate(prevProps, prevState) {
         if (prevState.language !== this.state.language) {
-            getTopHeadlinesByLanguage(this.state.language);
+            this.props.getTopHeadlinesByLanguage(this.state.language);
         }
     }
 
@@ -28,14 +28,14 @@ class LangBar extends Component {
         return (
             <div>
                 <button id="setUserLanguageBtn"
-                        class="mdl-button mdl-js-button mdl-button--icon top-bar--header-btn">
-                    <i class="material-icons">language</i>
+                        className="mdl-button mdl-js-button mdl-button--icon top-bar--header-btn">
+                    <i className="material-icons">language</i>
                 </button>
-                <div class="mdl-tooltip" data-mdl-for="setUserLanguageBtn" id="userLanguageTooltip">
+                <div className="mdl-tooltip" data-mdl-for="setUserLanguageBtn" id="userLanguageTooltip">
                 </div>
 
-                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
-                    for="setUserLanguageBtn" id="setUserLanguageUl">
+                <ul className="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="setUserLanguageBtn"
+                    id="setUserLanguageUl">
                     {this.state.userLanguages.map((language) => {
                         return (
                             <LangItem setLanguage={this.setLanguage} key={language} lang={language}/>
@@ -48,7 +48,7 @@ class LangBar extends Component {
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators({getTopHeadlinesByCountry: getTopHeadlinesByLanguage}, dispatch);
+    return bindActionCreators({getTopHeadlinesByLanguage: getTopHeadlinesByLanguage}, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(LangBar);
